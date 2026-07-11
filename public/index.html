@@ -1,202 +1,132 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>𝐆ᴀʏᴀɴ 𝐌ᴅ</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAIR CODE | gayan md WhatsApp Bot Connection</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&display=swap');
+    
+    :root {
+      --primary: #c77dff;
+      --secondary: #ff85c0;
+      --accent: #ffa8ba;
+      --dark: #1a1a2e;
+      --darker: #0f0f1a;
+      --light: #f8f9fa;
+      --glass: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --gradient: linear-gradient(135deg, #c77dff 0%, #ff85c0 100%);
+      --gradient-secondary: linear-gradient(135deg, #ff85c0 0%, #ffa8ba 100%);
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background: Black;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
+      display: flex; justify-content: center; align-items: center; min-height: 100vh;
+      background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+      font-family: 'Poppins', sans-serif; color: var(--light); overflow: hidden; position: relative;
     }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      z-index: 2;
+    
+    .grid {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background-image: linear-gradient(rgba(199, 125, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(199, 125, 255, 0.05) 1px, transparent 1px);
+      background-size: 30px 30px; z-index: -1;
     }
-
+    
+    .container { display: flex; flex-direction: column; align-items: center; width: 100%; padding: 20px; }
+    .main { position: relative; width: 100%; max-width: 420px; }
+    
     .box {
-      width: 330px;
-      padding: 20px;
-      background-color: Black;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 0 25px #00f2ff;
-      z-index: 2;
+      width: 100%; padding: 35px; text-align: center; background: var(--glass);
+      border-radius: 20px; backdrop-filter: blur(15px); border: 1px solid var(--glass-border);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); z-index: 1;
     }
-
-    @keyframes flicker {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; text-shadow: 0 0 5px #0ff, 0 0 20px #0ff; }
+    
+    .logo-image {
+      width: 80px; height: 80px; border-radius: 50%; background: var(--gradient);
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;
     }
-
-    h3, h6 {
-      color: #00f2ff;
-      animation: flicker 2s infinite alternate;
-      margin: 10px 0;
+    .logo-image img { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; }
+    
+    .logo-text {
+      font-family: 'Orbitron', sans-serif; font-size: 28px; font-weight: 700;
+      background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-
+    
     .input-container {
-      display: flex;
-      width: 100%;
-      margin-top: 16px;
+      display: flex; background: rgba(0, 0, 0, 0.2); border-radius: 12px;
+      padding: 4px; gap: 4px; width: 100%; margin-bottom: 20px; border: 1px solid var(--glass-border);
     }
-
-    .input-container input,
-    .input-container button {
-      height: 3rem;
-      font-size: 1rem;
-      border: none;
-      outline: none;
-      box-sizing: border-box;
-      transition: none !important;
-      transform: none !important;
-      resize: none !important;
-      appearance: none;
-    }
-
+    
     .input-container input {
-      width: 70%;
-      border-radius: 0.8rem 0 0 0.8rem;
-      background: #e0f7ff;
-      color: #000;
-      padding-left: 1rem;
+      border-radius: 8px 0 0 8px; background: rgba(0, 0, 0, 0.3); width: 100%;
+      padding: 15px; border: none; color: white; font-size: 16px;
     }
-
+    
     .input-container button {
-      width: 30%;
-      border-radius: 0 0.8rem 0.8rem 0;
-      background: #00bfff;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
+      padding: 15px; background: var(--gradient); font-family: 'Orbitron', sans-serif;
+      color: white; border: none; border-radius: 0 8px 8px 0; cursor: pointer;
     }
-
-    .input-container button:hover {
-      background: #00ffff;
-      color: #000;
+    
+    .code-display {
+      font-family: 'Orbitron', sans-serif; font-size: 22px; background: rgba(0, 0, 0, 0.3);
+      padding: 12px 20px; border-radius: 8px; border: 1px solid var(--glass-border);
+      display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer;
     }
-
-    a.centered-text {
-      color: white;
-      display: block;
-      margin-top: 20px;
-      font-weight: bold;
-    }
-
-    /* Neon dot background animation */
-    .Neon-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .dot {
-      position: absolute;
-      width: 8px;
-      height: 4px;
-      background: #00ffff;
-      border-radius: 50%;
-      animation: rise 5s linear infinite;
-      opacity: 0.6;
-    }
-
-    @keyframes rise {
-      0% {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0.2;
-      }
-      100% {
-        transform: translateY(-10vh) scale(1);
-        opacity: 1;
-      }
-    }
+    
+    .footer { position: absolute; bottom: 20px; width: 100%; text-align: center; color: rgba(255, 255, 255, 0.6); }
   </style>
 </head>
 <body>
-  <div class="yellow-bg" id="dots"></div>
-
+  <div class="grid"></div>
   <div class="container">
-    <div class="box" id="box">
-      <div id="text">
-        <i class="fa fa-user" style="color:#00ffff;"></i>
-        <h3>𝐆𝐚𝐲𝐚𝐧-𝐦𝐝</h3>
-        <h6>ᴩᴏᴡᴇʀᴅ ʙʏ 𝐠𝐚𝐲𝐚𝐧</h6>
-        <h6>🔢 Enter your number with country code</h6>
-
-        <div class="input-container">
-          <input placeholder="9477xxxxxxx" type="number" id="number">
-          <button id="submit">Submit</button>
+    <div class="main">
+      <div class="box">
+        <div class="logo">
+          <div class="logo-image"><img src="https://i.ibb.co/S7P5vhDd/IMG-20260711-WA0033.jpg" alt="Bot"></div>
+          <div class="logo-text">gayan md</div>
         </div>
-
-        <a id="waiting-message" class="centered-text" style="display: none;">Please wait a while...</a>
+        <h3>∞ Link with phone number ∞</h3>
+        <h6>🌴 Enter Your Number With Country Code 🌴</h6>
+        <div class="input-container">
+          <input placeholder="+94xxxxxxxxx" type="tel" id="number">
+          <button id="submit">enter</button>
+        </div>
+        <a id="waiting-message" style="display:none; color:var(--secondary);">Processing...</a>
         <main id="pair"></main>
       </div>
     </div>
   </div>
-
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
   <script>
-    let a = document.getElementById("pair");
-    let b = document.getElementById("submit");
-    let c = document.getElementById("number");
+    let a = document.getElementById("pair"), b = document.getElementById("submit"), c = document.getElementById("number"), waitingMessage = document.getElementById("waiting-message");
 
     async function Copy() {
-      let text = document.getElementById("copy").innerText;
-      let obj = document.getElementById("copy");
-      await navigator.clipboard.writeText(obj.innerText.replace('CODE: ', ''));
-      obj.innerText = "COPIED";
-      obj.style = "color:blue;font-weight:bold";
-      obj.size = "5";
-      setTimeout(() => {
-        obj.innerText = text;
-        obj.style = "color:white;font-weight-bold";
-        obj.size = "5";
-      }, 500);
+      let text = document.getElementById("copy-value").innerText;
+      await navigator.clipboard.writeText(text);
+      alert("Copied: " + text);
     }
 
     b.addEventListener("click", async (e) => {
       e.preventDefault();
-      if (!c.value) {
-        a.innerHTML = '<a style="color:white;font-weight:bold">Enter your WhatsApp number with Country Code</a><br><br>';
-      } else if (c.value.replace(/[^0-9]/g, "").length < 11) {
-        a.innerHTML = '<a style="color:red;font-weight:bold">Invalid Number</a><br><br>';
-      } else {
-        const number = c.value.replace(/[^0-9]/g, "");
-        c.type = "text";
-        c.value = "+" + number;
-        c.style = "color:black;font-size:25px";
-        a.innerHTML = '<a style="color:white;font-weight:bold">Please Wait...</<div>a</div>><br><br>';
-        let { data } = await axios(`/code?number=${number}`);
+      if (!c.value) return alert("Enter your number");
+      const bc = c.value.replace(/[^0-9]/g, "");
+      waitingMessage.style.display = "block";
+      a.innerHTML = '';
+      
+      try {
+        let { data } = await axios(`/pair?number=${bc}`);
         let code = data.code || "Service Unavailable";
-        a.innerHTML = `<font id="copy" onclick="Copy()" style="color:red;font-weight:bold" size="5">CODE: <span style="color:white;">${code}</span></font><br><br><br>`;
+        waitingMessage.style.display = "none";
+        a.innerHTML = `<div class="code-display" onclick="Copy()">CODE: <span id="copy-value" style="color:var(--secondary);">${code}</span></div>`;
+      } catch (error) {
+        waitingMessage.style.display = "none";
+        a.innerHTML = '<div style="color:red;">Service Unavailable</div>';
       }
     });
-
-    // Dot animation
-    const bg = document.getElementById("dots");
-    for (let i = 0; i < 80; i++) {
-      const dot = document.createElement("div");
-      dot.classList.add("dot");
-      dot.style.left = Math.random() * 100 + "vw";
-      dot.style.animationDuration = 3 + Math.random() * 5 + "s";
-      dot.style.animationDelay = Math.random() * 5 + "s";
-      bg.appendChild(dot);
-    }
   </script>
 </body>
 </html>
