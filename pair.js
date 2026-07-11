@@ -358,8 +358,8 @@ const sock = makeWASocket({
                 if (!global.isBotActiveSent) {
                     try {
                         const jid = xnumber + '@s.whatsapp.net';
-                        const activeText = `╭━━━〔 * qᴜᴇᴇɴ ɴᴇꜱʜᴜ ᴍᴅ* 〕━━━┈⊷\n┃ 🐉 *ʙᴏᴛ ᴄᴏɴɴᴇᴄᴛᴇᴅ !*\n╰━━━━━━━━━━━━━━━┈⊷\n\n**\n\n_🫟 qᴜᴇᴇɴ ɴᴇꜱʜᴜ ᴍᴅ ɪs ɴᴏᴡ ᴀᴄᴛɪᴠᴇ ᴀɴᴅ ʀᴇᴀᴅʏ ᴛᴏ ᴜsᴇ!_`;
-                        await sock.sendMessage(jid, { image: { url: "https://i.ibb.co/tNZVn1k/IMG-20260710-WA0163.jpg" }, caption: activeText });
+                        const activeText = `╭━━━〔 * ɢᴀʏᴀɴ ᴍᴅ * 〕━━━┈⊷\n┃ 🐉 *ʙᴏᴛ ᴄᴏɴɴᴇᴄᴛᴇᴅ !*\n╰━━━━━━━━━━━━━━━┈⊷\n\n**\n\n_🫟 ɢᴀʏᴀɴ ᴍᴅ ɪs ɴᴏᴡ ᴀᴄᴛɪᴠᴇ ᴀɴᴅ ʀᴇᴀᴅʏ ᴛᴏ ᴜsᴇ!_`;
+                        await sock.sendMessage(jid, { image: { url: "" }, caption: activeText });
                         global.isBotActiveSent = true;
                     } catch (e) {}
                 }
@@ -490,7 +490,7 @@ const sock = makeWASocket({
                 }
                 if (sessionConfig.AUTO_BIO === 'true' || sessionConfig.AUTO_BIO === true) {
                     let currentUptime = typeof runtime !== 'undefined' ? runtime(process.uptime()) : process.uptime();
-                    await sock.updateProfileStatus(`*Ｔᴜʜɪ ᴍᴅ v1 Cᴏɴɴᴇᴄᴛ Sᴜᴄᴄᴇꜱꜱꜰᴜʟ 🚀..."* *${currentUptime}* `).catch(() => {});
+                    await sock.updateProfileStatus(`*GAYAN-MD Cᴏɴɴᴇᴄᴛ Sᴜᴄᴄᴇꜱꜱꜰᴜʟ 🚀..."* *${currentUptime}* `).catch(() => {});
                 }
                 if (sessionConfig.READ_CMD_ONLY === "true" || sessionConfig.READ_CMD_ONLY === true) {
                     if (isCmd) await sock.readMessages([msg.key]).catch(() => {});
