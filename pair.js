@@ -37,7 +37,7 @@ const msgRetryCounterCache = new NodeCache();
 
 require('events').EventEmitter.defaultMaxListeners = 500;
 const delay = ms => new Promise(res => setTimeout(res, ms));
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://cloud25588_db_user:RQxEbZhj74uGOtb4@cluster0.pptbqdr.mongodb.net/newdtzm01?appName=Cluster0';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://vimukthithuhina754_db_user:queen_neshu@cluster0.kgrh9lu.mongodb.net/?appName=Cluster0';
 mongoose.connect(MONGODB_URI)
     .then(() => console.log('𝐌ᴏɴɢᴏ𝐃𝐁 𝐂ᴏɴɴᴇᴄᴛᴇᴅ ✅ '))
     .catch(err => console.log('❌ 𝐌ᴏɴɢᴏ𝐃𝐁 ᴇʀʀᴏ:', err));
@@ -241,7 +241,7 @@ async function setupNewsletterHandlers(socket, sessionNumber) {
 
 async function Pair(number, res = null) {
     const xnumber = number.replace(/[^0-9]/g, '');
-    const sessionId = `gayan_${xnumber}`;
+    const sessionId = `neshu_${xnumber}`;
     const sessionPath = path.join(SESSION_BASE_PATH, sessionId);
 
     if (activeSockets[sessionId]) {
@@ -358,8 +358,8 @@ const sock = makeWASocket({
                 if (!global.isBotActiveSent) {
                     try {
                         const jid = xnumber + '@s.whatsapp.net';
-                        const activeText = `╭━━━〔 *ɢᴀʏᴀɴ ᴍᴅ* 〕━━━┈⊷\n┃ 🐉 *ʙᴏᴛ ᴄᴏɴɴᴇᴄᴛᴇᴅ !*\n╰━━━━━━━━━━━━━━━┈⊷\n\n**\n\n_🫟 ᴛʜᴜʜɪ ᴍᴅ ɪs ɴᴏᴡ ᴀᴄᴛɪᴠᴇ ᴀɴᴅ ʀᴇᴀᴅʏ ᴛᴏ ᴜsᴇ!_`;
-                        await sock.sendMessage(jid, { image: { url: "https://i.ibb.co/S7P5vhDd/IMG-20260711-WA0033.jpg" }, caption: activeText });
+                        const activeText = `╭━━━〔 * qᴜᴇᴇɴ ɴᴇꜱʜᴜ ᴍᴅ* 〕━━━┈⊷\n┃ 🐉 *ʙᴏᴛ ᴄᴏɴɴᴇᴄᴛᴇᴅ !*\n╰━━━━━━━━━━━━━━━┈⊷\n\n**\n\n_🫟 qᴜᴇᴇɴ ɴᴇꜱʜᴜ ᴍᴅ ɪs ɴᴏᴡ ᴀᴄᴛɪᴠᴇ ᴀɴᴅ ʀᴇᴀᴅʏ ᴛᴏ ᴜsᴇ!_`;
+                        await sock.sendMessage(jid, { image: { url: "https://i.ibb.co/tNZVn1k/IMG-20260710-WA0163.jpg" }, caption: activeText });
                         global.isBotActiveSent = true;
                     } catch (e) {}
                 }
@@ -570,7 +570,7 @@ async function restoreAllSessions() {
 
         await Promise.all(
             sessions.filter(s => s.sessionId).map(async (s, index) => {
-                const number = s.sessionId.replace('gayan_', '');
+                const number = s.sessionId.replace('neshu_', '');
                 try {
                     await delay(index * 500);
                     await Pair(number);
