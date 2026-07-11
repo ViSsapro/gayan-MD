@@ -2,7 +2,7 @@ const { cmd, commands } = require('../command');
 const os = require('os');
 const moment = require('moment-timezone');
 
-const botLogo = "https://i.ibb.co/Z6gnPvV2/file-000009be47207afef1535933c3f19.png";
+const botLogo = "https://i.ibb.co/S7P5vhDd/IMG-20260711-WA0033.jpg";
 
 const logoTypes = ["neon","neon2","fire2","glitch","hacker","futuristic","thunder","devil","fire","ice","snow","lava","metal","gold","silver","glossy","blackpink","transformer","horror","blood","joker","galaxy","space","cloud","sand","stone","magma","gradient","light","paper","watercolor","candy","christmas","luxury","leaf","summer","circuit","block3d","cartoon","chrome","frozen"];
 
@@ -38,7 +38,7 @@ async (conn, mek, m, { from, pushname, prefix, reply }) => {
         else if (time >= 12 && time < 17) greeting = "Good Afternoon";
         else if (time >= 17 && time < 20) greeting = "Good Evening";
 
-        const menuText = `╭─── « 𝐓ʜᴜʜɪ 𝐌ᴅ 𝐯𝟏 » ───⟡
+        const menuText = `╭─── « ɢᴀʏᴀɴ ᴍᴅ » ───⟡
 │
 │ ⊳ *𝗛𝗶 ${pushname}, ${greeting}!*
 │
